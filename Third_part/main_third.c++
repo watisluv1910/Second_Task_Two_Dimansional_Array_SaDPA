@@ -233,16 +233,52 @@ int isIntersected(Triangle& currentTriangle, vector<Triangle>& trianglesArray) {
 			return 1;
 		}
 
+		if (isIntersected(currentTriangle.A, currentTriangle.B, foundTriangle.B, foundTriangle.C)) {
+
+			currentTriangle.intersection = "is intersected";
+			return 1;
+		}
+
+		if (isIntersected(currentTriangle.A, currentTriangle.B, foundTriangle.C, foundTriangle.A)) {
+
+			currentTriangle.intersection = "is intersected";
+			return 1;
+		}
+
 		// for BC:
-		if (isIntersected(currentTriangle.B, currentTriangle.C, foundTriangle.B, foundTriangle.C)) {
+		if (isIntersected(currentTriangle.B, currentTriangle.C, foundTriangle.A, foundTriangle.B)) {
 			
 			currentTriangle.intersection = "is intersected";
 			return 1;
 		}
 
+		if (isIntersected(currentTriangle.B, currentTriangle.C, foundTriangle.B, foundTriangle.C)) {
+
+			currentTriangle.intersection = "is intersected";
+			return 1;
+		}
+
+		if (isIntersected(currentTriangle.B, currentTriangle.C, foundTriangle.C, foundTriangle.A)) {
+
+			currentTriangle.intersection = "is intersected";
+			return 1;
+		}
+
 		// for CA:
-		if (isIntersected(currentTriangle.C, currentTriangle.A, foundTriangle.C, foundTriangle.A)) {
+		if (isIntersected(currentTriangle.C, currentTriangle.A, foundTriangle.A, foundTriangle.B)) {
 			
+			currentTriangle.intersection = "is intersected";
+			return 1;
+		}
+
+		if (isIntersected(currentTriangle.C, currentTriangle.A, foundTriangle.B, foundTriangle.C)) {
+
+			currentTriangle.intersection = "is intersected";
+			return 1;
+		}
+
+		if (isIntersected(currentTriangle.C, currentTriangle.A, foundTriangle.C, foundTriangle.A)) {
+
 			currentTriangle.intersection = "is intersected";
 			return 1;
 		}

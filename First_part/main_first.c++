@@ -4,7 +4,7 @@
 
 const int rowsNumber  = 8;
 const int columnsNumber = 8;
-const int coordinatsNumber = 2;
+const int coordinatesNumber = 2;
 
 struct Сoordinates {
 	int x, y;
@@ -17,7 +17,7 @@ using namespace std;
 void menuOutput();
 bool isLetter(char coord);
 bool isDigit(char coord);
-int getCoordinats();
+int getCoordinates();
 void detectPath(int(*array)[columnsNumber]);
 void outputFrame();
 void outputArray(int(*array)[columnsNumber]);
@@ -38,10 +38,10 @@ bool isDigit(char coord) {
 	return (int('1') <= int(coord) && int(coord) <= int('9')) ? true : false;
 }
 
-int getCoordinats() {
+int getCoordinates() {
 	string coordinate;
 	cin >> coordinate;
-	if (coordinate.length() == coordinatsNumber) {
+	if (coordinate.length() == coordinatesNumber) {
 		if (isLetter(coordinate[0]) && isDigit(coordinate[1])) {
 			coord.x = abs(rowsNumber - 1 - int(coordinate[1]) + int('1'));
 			coord.y = int(coordinate[0]) - int('a');
@@ -122,8 +122,8 @@ int main() {
 		switch (chooseTask) {
 		case 1: {
 			cout << "\nEnter the queen coordinats:\n";
-			if (!getCoordinats()) {
-				cout << "\nCoordinats were entered incorrectly. Try again.\n";
+			if (!getCoordinates()) {
+				cout << "\nCoordinates were entered incorrectly. Try again.\n";
 				cin.clear();
 				cin.ignore(numeric_limits<streamsize>::max(), '\n');
 				break;
